@@ -1,0 +1,7 @@
+{
+  "name": "tap-auth-demo-firebase",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
