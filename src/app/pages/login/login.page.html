@@ -1,9 +1,11 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>login</ion-title>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content>
-
+<ion-content class="ion-text-center">
+  <div class="container-div">
+    <ion-spinner *ngIf="isLoading; else showLoginForm"></ion-spinner>
+  </div>
 </ion-content>
+
+<ng-template #showLoginForm>
+  <ion-button role="button" (click)="signInAnonymously()">
+    Sign In Anonymously
+  </ion-button>
+</ng-template>

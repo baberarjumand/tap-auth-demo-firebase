@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { AuthService } from 'src/app/shared/services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -6,10 +8,23 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./login.page.scss'],
 })
 export class LoginPage implements OnInit {
+  isLoading = false;
 
-  constructor() { }
+  constructor(private authService: AuthService, private router: Router) {}
 
-  ngOnInit() {
+  ngOnInit() {}
+
+  signInAnonymously() {
+    this.isLoading = true;
+
+    this.authService
+      .signInAnonymous()
+      .then(() => {
+        this.isLoading = false;
+        this.router.navigate(['']);
+      })
+      .catch((err) => {
+        console.error('Error in signing in anonymously:', err);
+      });
   }
-
 }

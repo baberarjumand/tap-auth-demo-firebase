@@ -9,12 +9,14 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "deploy": "ionic build && firebase deploy"
   },
   "private": true,
   "dependencies": {
     "@angular/common": "~13.2.2",
     "@angular/core": "~13.2.2",
+    "@angular/fire": "^7.4.1",
     "@angular/forms": "~13.2.2",
     "@angular/platform-browser": "~13.2.2",
     "@angular/platform-browser-dynamic": "~13.2.2",

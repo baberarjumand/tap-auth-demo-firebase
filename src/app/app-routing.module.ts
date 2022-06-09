@@ -1,11 +1,13 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { AuthenticatedUserGuard } from './shared/guards/authenticated-user.guard';
 
 const routes: Routes = [
   {
     path: '',
     loadChildren: () =>
       import('./pages/home/home.module').then((m) => m.HomePageModule),
+    canActivate: [AuthenticatedUserGuard],
   },
   {
     path: 'register',
