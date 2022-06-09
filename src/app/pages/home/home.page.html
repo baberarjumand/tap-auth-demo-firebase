@@ -6,12 +6,24 @@
 
 <ion-content class="ion-text-center">
   <div class="container-div">
-    <h3>This is the homepage!</h3>
-    <h3>Only authenticated users can access this view!</h3>
-    <br />
-    <h3>You are an authenticated user.</h3>
-    <h3>Your user details are as follows:</h3>
-    <br />
-    <ion-button role="button" (click)="signOut()">Log Out</ion-button>
+    <ion-spinner *ngIf="isLoading; else showPageContent"></ion-spinner>
   </div>
 </ion-content>
+
+<ng-template #showPageContent>
+  <p>
+    This is the homepage!<br />
+    Only authenticated users can access this view!
+  </p>
+  <br />
+  <p>
+    You are an authenticated user.<br />
+    Your user details are as follows:
+  </p>
+  <p>
+    User Email:<br />{{ currentUserObj.email }}<br /><br />
+    User Verified:<br />{{ currentUserObj.emailVerified }}<br /><br />
+    User ID:<br />{{ currentUserObj.uid }}<br />
+  </p>
+  <ion-button role="button" (click)="signOut()">Log Out</ion-button>
+</ng-template>

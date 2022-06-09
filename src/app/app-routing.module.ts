@@ -22,6 +22,13 @@ const routes: Routes = [
       import('./pages/login/login.module').then((m) => m.LoginPageModule),
   },
   {
+    path: 'finish-sign-in',
+    loadChildren: () =>
+      import('./pages/finish-sign-in/finish-sign-in.module').then(
+        (m) => m.FinishSignInPageModule
+      ),
+  },
+  {
     path: '**',
     redirectTo: 'home',
     pathMatch: 'full',

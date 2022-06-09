@@ -5,7 +5,8 @@
 </ion-content>
 
 <ng-template #showLoginForm>
-  <ion-button role="button" (click)="signInAnonymously()">
-    Sign In Anonymously
-  </ion-button>
+  <input type="email" placeholder="Enter Email" [(ngModel)]="emailInput" />
+  <ion-button role="button" (click)="signInWithEmailLink()">
+    Sign In With Email Link
+  </ion-button>    
 </ng-template>
