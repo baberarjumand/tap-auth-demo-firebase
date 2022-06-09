@@ -53,13 +53,20 @@ export class LoginPage implements OnInit {
         // if they open the link on the same device.
         window.localStorage.setItem('emailForSignIn', this.emailInput);
 
-        alert(
-          'Please sign in with the link that has been sent to your email: ' +
-            this.emailInput
-        );
+        // alert(
+        //   'Please sign in with the link that has been sent to your email: ' +
+        //     this.emailInput
+        // );
+
+        this.emailSubmitted = true;
+        this.isLoading = false;
       })
       .catch((err) => {
         console.error('Error in sending sign-in link:', err);
       });
+  }
+
+  resetForm() {
+    this.emailSubmitted = false;
   }
 }
